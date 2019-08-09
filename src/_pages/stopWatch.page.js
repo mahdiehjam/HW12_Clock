@@ -22,11 +22,12 @@ class StopWatchPage extends Component {
         },10)
     }
 
-    // addLap = () =>{
-    //     this.setState({
-    //         laps : this.state.laps.concat([this.state.counter])
-    //     })
-    // }
+    addLap = () =>{
+        const {laps , counter} = this.state;
+        this.setState({
+        laps : [ ...laps, counter] 
+        });
+    }
 
     pauseStopWatch = () =>{
         this.setState({
@@ -58,18 +59,26 @@ class StopWatchPage extends Component {
 
     render () {
         const {counter} = this.state;
-        return <div className="clock-page">
+        return <div className="clock-page2">
+            <div className="time">
             <StopWatch counter = {counter}/>
             <div style={{marginTop: 20,width: 350,justifyContent: 'space-around'}}>
                 {this.renderBtn()}
             </div>
-            {/* <ul>
-                {this.state.laps.map((lap,i) =>
-                    <li id={i} key={i}>
-                        {this.formattedSeconds(lap)}
-                    </li>
-                )}
-            </ul> */}
+            </div>
+            <div >
+            <ul className="laps"> 
+            {
+              this.state.laps.map( (counter, index) => {
+                return (
+                  <li key={ index }>
+                    {this.state.counter}
+                  </li>
+                )
+              })
+            }
+            </ul>
+            </div>
         </div>
     }
 }

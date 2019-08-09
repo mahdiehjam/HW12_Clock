@@ -1,13 +1,35 @@
 div {
   display: flex;
 }
-.clock-page {
+
+
+.clock-page{
   background: #414141;
   width: 100vw;
   height: 100vh;
   justify-content: center;
   align-items: center;
   flex-direction: column;
+}
+
+.clock-page2 {
+  background: #414141;
+  width: 100vw;
+  height: 100vh;
+  justify-content: center;
+  align-items: center;
+}
+
+.time{
+  flex-direction: column;
+  align-items: center;
+}
+
+.laps{
+  list-style: none;
+  color: white;
+  font-weight: bold;
+  font-size: 40px;
 }
 
 
@@ -42,3 +64,5 @@ div {
  border: none;
  z-index: 1;
 }
+
+
