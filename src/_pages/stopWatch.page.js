@@ -10,7 +10,6 @@ class StopWatchPage extends Component {
     }
 
 
-
     goBack = () => {
         this.props.history.push('/');
     }

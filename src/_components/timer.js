@@ -14,20 +14,15 @@ class Timer extends React.Component {
 
     eventHandler = (event)=>{
         const {target:{value,name}} = event;
-        this.setState({[name]: value});
+        this.setState({[name]: value ,minimumIntegerDigits: 2 });
     }
     
-    calculateClock = () =>{
-     
-        
-    }
     
     showTimer = () =>{
-       
         const {hour,min,sec} = this.state;
         let {start} = this.props;
-        let count = 0;
-        count = hour*3600 + min*60 + sec;
+        let counter = 0;
+        counter = hour*3600 + min*60 + sec;
         // this.props.setCounter({count});
         if(start){
             return <>
@@ -38,9 +33,11 @@ class Timer extends React.Component {
             <span>{sec.toLocaleString('en',{minimumIntegerDigits: 2})}</span></>
         }else{
             return<>
-            <input type="number" vlaue={hour} name="hour" onChange={this.eventHandler}/>:
-            <input type="number" vlaue={min} name="min" onChange={this.eventHandler}/>:
-            <input type="number" vlaue={sec} name="sec" onChange={this.eventHandler}/>
+            <input type="number" vlaue={hour} name="hour" min="00" max="23" placeholder="00" onChange={this.eventHandler}/>
+            :
+            <input type="number" vlaue={min} name="min" min="00" max="59" placeholder="00" onChange={this.eventHandler}/>
+            :
+            <input type="number" vlaue={sec} name="sec" min="00" max="59" placeholder="00" onChange={this.eventHandler}/>
             </>
         }
     }

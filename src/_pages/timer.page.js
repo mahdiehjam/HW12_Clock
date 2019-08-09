@@ -6,31 +6,28 @@ class TimerPage extends Component{
 
     state = {
         start : false,
-        counter:0
+        counter: ''
     }
 
-    setCounter = count =>{
-        //const {counter} = this.state;
-        this.setState({counter: count});
+    goBack = () => {
+        this.props.history.push('/');
     }
 
     startTimer = () =>{
         this.setState({start: true});
         this.interval = setInterval(()=>{
-            this.setState({counter: this.state.counter - 1})
+            this.setState({counter: this.counter - 1})
         },1000)
     }
     
-    goBack = () => {
-        this.props.history.push('/');
-    }
+    
 
     renderBtn = ()=>{
         const {start} = this.state;
         if(start){
             return<>
-                <ClockButton onClick = {this.addLap}>pause</ClockButton>
                 <ClockButton onClick = {this.goBack}>back</ClockButton>
+                <ClockButton onClick = {this.addLap}>pause</ClockButton>
             </>
         }else{
             return<>
