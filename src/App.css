@@ -10,6 +10,7 @@ div {
   flex-direction: column;
 }
 
+
 .clock-button {
   border: none;
   padding: 10px 20px;
@@ -21,4 +22,23 @@ div {
 
 .clock-button:hover{
   background: #eee;
+}
+
+
+.Timer-page{
+ background: #414141;
+ color: white;
+ justify-content: center;
+ align-items: center;
+ flex-direction: row;
+}
+
+
+.Timer-page>input{
+ margin: 5px; 
+ color: black;
+ padding: 10px;
+ border-radius: 20px;
+ border: none;
+ z-index: 1;
 }

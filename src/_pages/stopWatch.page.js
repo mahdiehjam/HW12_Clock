@@ -5,8 +5,11 @@ class StopWatchPage extends Component {
 
     state = {
         counter: 0,
-        start: false
+        start: false,
+        laps : []
     }
+
+
 
     goBack = () => {
         this.props.history.push('/');
@@ -20,7 +23,9 @@ class StopWatchPage extends Component {
     }
 
     addLap = () =>{
-
+        this.setState({
+            laps : this.state.laps.concat([this.state.counter])
+        })
     }
 
     pauseStopWatch = () =>{
@@ -54,9 +59,20 @@ class StopWatchPage extends Component {
     render () {
         const {counter} = this.state;
         return <div className="clock-page">
+            <div>
             <StopWatch counter = {counter}/>
             <div style={{marginTop: 20,width: 350,justifyContent: 'space-around'}}>
                 {this.renderBtn()}
+            </div>
+            </div>
+            <div>
+                <ul>
+                    {this.state.laps.map((lap,i) =>
+                        <li id={i} key={i}>
+                            {this.formattedSeconds(lap)}
+                        </li>
+                    )}
+                </ul>
             </div>
         </div>
     }
