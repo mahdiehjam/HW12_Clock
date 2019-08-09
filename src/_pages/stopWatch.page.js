@@ -19,14 +19,14 @@ class StopWatchPage extends Component {
         this.setState({start: true})
         this.interval = setInterval(()=>{
             this.setState({counter: this.state.counter + 1})
-        },1000)
+        },10)
     }
 
-    addLap = () =>{
-        this.setState({
-            laps : this.state.laps.concat([this.state.counter])
-        })
-    }
+    // addLap = () =>{
+    //     this.setState({
+    //         laps : this.state.laps.concat([this.state.counter])
+    //     })
+    // }
 
     pauseStopWatch = () =>{
         this.setState({
@@ -59,21 +59,17 @@ class StopWatchPage extends Component {
     render () {
         const {counter} = this.state;
         return <div className="clock-page">
-            <div>
             <StopWatch counter = {counter}/>
             <div style={{marginTop: 20,width: 350,justifyContent: 'space-around'}}>
                 {this.renderBtn()}
             </div>
-            </div>
-            <div>
-                <ul>
-                    {this.state.laps.map((lap,i) =>
-                        <li id={i} key={i}>
-                            {this.formattedSeconds(lap)}
-                        </li>
-                    )}
-                </ul>
-            </div>
+            {/* <ul>
+                {this.state.laps.map((lap,i) =>
+                    <li id={i} key={i}>
+                        {this.formattedSeconds(lap)}
+                    </li>
+                )}
+            </ul> */}
         </div>
     }
 }
