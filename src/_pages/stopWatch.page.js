@@ -22,10 +22,9 @@ class StopWatchPage extends Component {
     }
 
     addLap = () =>{
-        const {laps , counter} = this.state;
         this.setState({
-        laps : [ ...laps, counter] 
-        });
+            laps: this.state.laps.concat([this.state.counter])
+        })
     }
 
     pauseStopWatch = () =>{
@@ -68,10 +67,10 @@ class StopWatchPage extends Component {
             <div >
             <ul className="laps"> 
             {
-              this.state.laps.map( (counter, index) => {
+              this.state.laps.map((counter, index) => {
                 return (
-                  <li key={ index }>
-                    {this.state.counter}
+                  <li key={index}>
+                    <StopWatch counter = {counter}/>
                   </li>
                 )
               })
