@@ -36,7 +36,8 @@ class StopWatchPage extends Component {
 
     restart = () =>{
         this.setState({
-            counter: 0
+            counter: 0,
+            laps : []
         })
     }
 
