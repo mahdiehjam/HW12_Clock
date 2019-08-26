@@ -76,4 +76,26 @@ div {
   margin: 0;
 }
 
+.timer{
+  display: flex;
+  flex-direction: column;
+}
+
+
+.timerbtn{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+
+.timerbtn button{
+  padding: 5px;
+  margin: 5px;
+  text-align: center;
+  outline: none;
+  background: #414141;
+  border: none;
+}
+
 
